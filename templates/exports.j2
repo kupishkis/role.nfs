@@ -1,0 +1,7 @@
+#{{ansible_managed}}
+
+{% if nfs_shares is defined %}
+{% for share in nfs_shares %}
+{{share.path}} {{share.network}}({{ ','.join(share.options) }})
+{% endfor %}
+{% endif %}

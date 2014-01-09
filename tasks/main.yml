@@ -1,0 +1,13 @@
+---
+- name: replace the exports file
+  sudo: true
+  template: src=exports.j2 dest=/etc/exports
+  when: nfs_shares is defined
+  notify: restart nfs
+
+#- name: add nfs user maps
+#  sudo: true
+#  template: src=nfs.map.j2 dest=/etc/nfs.{{item.name}}.map
+#  when: item.map is defined
+#  with_items: nfs_shares
+

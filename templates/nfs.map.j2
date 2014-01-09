@@ -1,0 +1,11 @@
+# {{ansible_managed}}
+
+# mapping for {{item.path}}
+
+# remote local
+{% if item.map.user is defined %}
+uid {{item.map.user.local}} {{item.map.user.remote}}
+{% endif %}
+{% if item.map.group is defined %}
+gid {{item.map.group.local}} {{item.map.group.remote}}
+{% endif %}
